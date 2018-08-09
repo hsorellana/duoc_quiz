@@ -1,10 +1,14 @@
 version: '3'
 
 services:
-  app:
-    build: .
+  web:
+    image: nginx:alpine
+    volumes:
+      - ./public:/var/www/public
     ports:
       - 80:80
+  app:
+    build: .
     working_dir:
       - /duoc/duoc_quiz
     environment:
@@ -14,8 +18,8 @@ services:
 
   database:
     image: mysql:5.7
-    ports:
-      - 33061:3306
+    expose:
+      - 3306
     environment:
       - "MYSQL_ROOT_PASSWORD=${DB_PASSWORD}"
       - "MYSQL_DATABASE=${DB_DATABASE}"
