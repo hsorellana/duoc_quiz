@@ -6,7 +6,7 @@ RUN pecl install imagick mcrypt-1.0.1
 RUN docker-php-ext-enable imagick mcrypt
 RUN docker-php-ext-install pdo_mysql zip
 
-RUN curl -sS https://getcomposer.org/installer | php
-RUN chmod +x composer.phar && mv composer.phar /usr/local/bin/composer
+RUN curl -sS https://getcomposer.org/installer | php && \
+    chmod +x composer.phar && mv composer.phar /usr/local/bin/composer
 
 RUN docker-php-ext-install soap

@@ -135,12 +135,12 @@
             <div class="row">
                 <div class="col-md-6">
                     <a href="#" onclick="restart()">
-                        <img src="/img/logo.jpg" alt="logo-duoc" width="500px" height="200px">
+                        <img src="/img/logo.jpg" alt="logo-duoc" width="450px" height="200px">
                     </a>
                 </div>
                 <div class="col-md-6">
                     <a href="#" class="pull-right">
-                        <img src="/img/encuentro.png" alt="logo-encuentro" width="500px" height="200px">
+                        <img src="/img/encuentro.png" alt="logo-encuentro" width="450px" height="200px">
                     </a>
                 </div>
             </div>
@@ -231,7 +231,7 @@
                     swal({
                         title: '¡Respuesta correcta!',
                         type: 'success',
-                        confirmButtonText: 'Cool'
+                        confirmButtonText: 'Ok'
                     })
                 } else {
                     $('.' + newWarning).addClass(newIncorrect).removeClass("bg-primary").removeClass(newWarning)
@@ -240,7 +240,7 @@
                     swal({
                         title: '¡Respuesta incorrecta!',
                         type: 'error',
-                        confirmButtonText: 'Cool'
+                        confirmButtonText: 'Ok'
                     })
                 }
                 sendAjaxRequest()
@@ -296,6 +296,7 @@
             }
 
             function restart() {
+                confirm('Se marcarán todas las preguntas como no leídas. Confirmar...')
                 setScoreToZero()
                 window.location.href = "/questions_reset"
             }
