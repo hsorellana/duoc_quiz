@@ -31,12 +31,18 @@ class QuestionController extends Controller
     public function start(Request $request)
     {
         $question = Question::randomComexQuestion();
+        if ($question == null) {
+            return view('404');
+        }
         return view('questions.show')->with('question', $question);
     }
 
     public function startLogistic(Request $request)
     {
         $question = Question::randomLogisticQuestion();
+        if ($question == null) {
+            return view('404');
+        }
         return view('questions.show')->with('question', $question);
     }
 

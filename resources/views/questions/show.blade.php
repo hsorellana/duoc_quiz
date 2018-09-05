@@ -296,7 +296,12 @@
             }
 
             function restart() {
-                confirm('Se marcarán todas las preguntas como no leídas. Confirmar...')
+                clock.pause()
+                var answer = confirm('Se reinicirán todas las preguntas. ¿Estás seguro?')
+                if (!answer) {
+                    clock.play()
+                    return
+                }
                 setScoreToZero()
                 window.location.href = "/questions_reset"
             }
